@@ -2,6 +2,8 @@
 
 void reverse(char*, int);
 int compare(char*, char*);
+void allUpper(char*);
+void allLower(char*);
 
 void main(int argc,char** argv){
 	//printf("%s \n",argv[1]);
@@ -11,8 +13,18 @@ void main(int argc,char** argv){
 	}
 	if(compare(argv[1],"length") == 0 && argc == 3){
 		printf("-- %d --\n",charLen(argv[2]));
+	}
+	if(compare(argv[1],"allUpper") == 0 && argc ==33){
+		allUpper(argv[2]);
 	}	
+	if(compare(argv[1],"allLower") == 0 && argc == 3){
+		allLower(argv[2]);
+	}
 }
+/////////////////////////////
+// parameters: array of characters. This being the word that is reversed. integer which reflects length of word.
+// result: prints the reversed word.
+///////////////////////////
 void reverse( char* x, int length){
 	//printf("in reverse\n");
 	char new[length];
@@ -47,3 +59,26 @@ int compare(char* x, char* y){//returns 1 if false, 0 if true
 	}
 	return 0;
 }
+void allUpper(char* x){
+	int length = charLen(x);
+	int i = 0;
+	for(i;i < length;i++){
+		if(x[i]>96 && x[i]<123){
+			x[i]=x[i]-32;
+		}
+	}
+	printf("-- %s --\n",x);
+
+}
+void allLower(char* x){
+        int length = charLen(x);
+        int i = 0;
+        for(i;i < length;i++){
+                if(x[i]>64 && x[i]<91){
+                        x[i]=x[i]+32;
+                }
+        }
+        printf("-- %s --\n",x);
+
+}
+
